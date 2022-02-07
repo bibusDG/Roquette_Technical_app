@@ -268,8 +268,6 @@ class CBoardCalc(Screen):
 
 class EnzymeCalc(Screen):
 
-
-
     pass
 
 # GUI = Builder.load_file('main.kv')
