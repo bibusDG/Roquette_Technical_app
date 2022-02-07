@@ -149,6 +149,8 @@ class CalcScreen(Screen):
             self.ids.calc_screen_box.add_widget(VectorCalc())
         if self.ids.name_label.text == 'EVO':
             self.ids.calc_screen_box.add_widget(EvoCalc())
+        if self.ids.name_label.text == 'ENZYME':
+            self.ids.calc_screen_box.add_widget(EnzymeCalc())
     def on_leave(self):
         self.ids.calc_screen_box.clear_widgets()
         print('end')
@@ -261,6 +263,12 @@ class CBoardCalc(Screen):
 
     def cboard_spinner(self, text):
         self.ids.cboard_spinner.values = [str(x) for x in data['product']['Cboard']]
+
+    pass
+
+class EnzymeCalc(Screen):
+
+
 
     pass
 

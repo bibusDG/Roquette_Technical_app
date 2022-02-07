@@ -1,0 +1,23 @@
+<EnzymeCalc>
+    name:'Enzyme_Calc'
+    id: Enzyme_Calc
+    GridLayout:
+        pos_hint: {'top': 1, 'center_x': .5}
+        size_hint: (0.8, .08)
+        cols: 1
+    #        col_default_width:60
+        rows: 1
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 5
+        Spinner:
+            id: enzyme_spinner
+            background_color: (1, 2, 1, 1)
+            text: 'CHOOSE STARCH'
+            color: (0,0,0,1)
+            font_size:20
+    #            size_hint: None, None
+            size: 300, 30
+            values: ''
+#            on_text:
+#                root.app_spinner(self.text)
