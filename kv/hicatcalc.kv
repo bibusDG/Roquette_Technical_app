@@ -1,0 +1,232 @@
+<HiCatCalc>
+    name:'Hi_Cat_Calc'
+    id: Hi_Cat_Calc
+    GridLayout:
+        pos_hint: {'top': 1, 'center_x': .5}
+        size_hint: (0.8, .15)
+        cols: 1
+    #        col_default_width:60
+        rows: 2
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 5
+        Spinner:
+            id: app_spinner
+            background_color: (1, 2, 1, 1)
+            text: 'CHOOSE APP'
+            color: (0,0,0,1)
+            font_size:20
+    #            size_hint: None, None
+            size: 300, 30
+            values: 'WET-END', 'STRENGTH'
+            on_text:
+                root.app_spinner(self.text)
+
+        Spinner:
+            id: starch_spinner
+            background_color: (1, 2, 1, 1)
+            text: 'CHOOSE STARCH'
+            color: (0,0,0,1)
+            font_size:20
+    #            size_hint: None, None
+            size: 300, 30
+            on_press:
+                root.starch_spinner(self.text)
+            on_text:
+                root.starch_spinner_cooker_range(self.text)
+    GridLayout:
+        pos_hint: {'top': .85, 'center_x': .5}
+        size_hint: (0.8, .65)
+        cols: 2
+
+    #        col_default_width:60
+        rows: 10
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 5
+        Label:
+            text: 'AVG. DOSING: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id:dosing
+            text: 'KG/T: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'PRODUCTION t/h: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:production
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.consumption(self.text)
+        Label:
+            text: 'CONSUMPTION: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id:consumption
+            text: 't/month'
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'SLURRY IN %: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:slurry_conc
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.slurry_conc(self.text)
+
+        Label:
+            text: 'FINAL STARCH %: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:final_starch
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.final_starch(self.text)
+
+
+
+        Label:
+            text: 'COOKER RANGE: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id:cooker_range
+            text: 'kg/h'
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'SLURRY WATER: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id:slurry_water
+            text: ' l/h: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'DILUTION WATER: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: dilution_water
+            text: ' l/h: '
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'WATER CONS.: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id:water_cons
+            text: 'm3/month'
+            bold: True
+            text_size:self.size
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+    GridLayout:
+        pos_hint: {'top': .15, 'center_x': .5}
+        size_hint: (0.8, .10)
+        cols: 1
+
+    #        col_default_width:60
+        rows: 1
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 5
+        Button:
+            id: calculate
+            text: 'Calculate'
+            bold: True
+#            text_size:self.size
+            valign: 'middle'
+            color: (0, 1, 0, 1)
+            font_size: 20
+            on_press:
+                root.calculate_data()
+
+#            background_color: (1, 1, 1, 1)
+#            canvas.before:
+#                Color:
+#                    rgba: self.background_color
+#                Rectangle:
+#                    size: self.size
+#                    pos: self.pos
+

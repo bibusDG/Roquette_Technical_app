@@ -1,0 +1,68 @@
+<DetailedProductScreen>
+
+    FloatLayout: # general overview of main app layout (color, size)
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#45acd1")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout: # firs grid 10% of whole size of window (size hint .1), starts from top-left
+            rows: 1
+            pos_hint: {'top': 1, 'left': 1}
+            size_hint: 1, .1
+            Image: # Roquette image on top of screen
+                source: 'icons/roquette_ico_2.png'
+
+        GridLayout: # firs grid 10% of whole size of window (size hint .1), starts from top-left
+            rows: 1
+            pos_hint: {'top': .9, 'left': 1}
+            size_hint: 1, .1
+            Label:
+                id:name_label
+                bold: True
+                font_size: 30
+                font_name: 'Impact'
+#        ScrollView:
+#            do_scroll_x: False
+#            do_scroll_y: True
+#            pos_hint:{'top': .80, 'center_x': .5}
+        GridLayout:
+            id: grid
+            cols: 3
+            spacing: 7
+            row_force_default: True
+            row_default_height: 40
+            pos_hint: {'top': .80, 'center_x': .5}
+            size_hint: (1, .6)
+
+        GridLayout: # third grid with 70% of height (.7). Starts from 80% of all size (.8)
+            cols: 3
+            rows: 1
+            pos_hint: {'top': .1, 'left': 1}
+            size_hint: 1, .1
+            ImageButton:
+                source: 'icons/home.png'
+                on_release:
+                    root.manager.transition = NoTransition(duration=.1)
+                    app.change_screen('home_screen')
+                    app.zeroing_list()
+            ImageButton:
+                source: 'icons/back.png'
+                on_release:
+                    root.manager.transition = NoTransition(duration=.1)
+                    app.change_screen(app.previous_screen())
+#    on_enter:
+#        print('dd')
+#    GridLayout:
+#        id: grid
+#        cols: 3
+#        spacing: 7
+#        row_force_default: True
+#        row_default_height: 40
+#        pos_hint: {'top': .80, 'center_x': .5}
+#        size_hint: (1, .6)
+#        Button:
+#            on_press:
+#                root.build_grid()

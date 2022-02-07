@@ -1,0 +1,368 @@
+<EvoCalc>
+    name: 'evo_calc'
+    id: evo_calc
+    GridLayout:
+        pos_hint: {'top': 1, 'center_x': .5}
+        size_hint: (0.8, .07)
+        cols: 3
+    #        col_default_width:60
+        rows: 1
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 3
+        Spinner:
+            id: vector_spinner
+            background_color: (1, 2, 1, 1)
+            text: 'CHOOSE EVO'
+            color: (0,0,0,1)
+            font_size:15
+    #            size_hint: None, None
+            size: 300, 30
+            on_press:
+                root.evo_spinner(self.text)
+        Label:
+            text: 'Batches/day'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+        TextInput:
+            text: ''
+    GridLayout:
+        pos_hint: {'top': .90, 'center_x': .5}
+        size_hint: (0.8, .65)
+        cols: 4
+        rows: 10
+        spacing: 3
+        Label:
+            text: 'PROD.DAYS/YEAR: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'PROD.RATE: '
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+        Label:
+            text:' %'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'latex price e/T'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'evo price e/T'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'latex dry'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'EVO dry'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'latex dry price'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:' e/T'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'EVO dry price'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:' e/T'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'dry solid latex'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'dry solid EVO'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'kg latex/part'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'kg EVO/part'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'kg latex/part'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:' dry'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'kg EVO/part'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:' dry'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+    GridLayout:
+        pos_hint: {'top': .25, 'center_x': .5}
+        size_hint: (0.8, .15)
+        cols: 5
+        rows: 2
+        spacing: 5
+        Label:
+            text:'st.coating'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'latex parts'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'Evo parts'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            halign: 'left'
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'trial coating'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text:'latex parts'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+
+        Label:
+            text:'Evo parts'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            text:''
+            halign: 'left'
+            font_size:15
+            multiline: False
+#            on_text_validate:
+#                root.vector_production(self.text)
+    GridLayout:
+        pos_hint: {'top': .08, 'center_x': .5}
+        size_hint: (0.8, .08)
+        rows: 1
+        spacing: 5
+        Button:
+            text:'CALCULATE'
+

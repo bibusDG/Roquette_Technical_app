@@ -1,0 +1,86 @@
+{
+  "product": {
+    "Vector": {
+      "fff": {
+         "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      }
+    },
+    "Cboard": {
+      "ddd": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      }
+    },
+    "Hi-Cat": {
+      "Hi-Cat373A": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      },
+      "Hi-Cat1134": {
+        "Raw material": "Potato",
+        "Loss on drying": "18% max",
+        "Bonded nitrogen": "0.30-0.35%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.1",
+        "Protein": "0.1"
+      },
+      "Hi-Cat323A": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.30-0.35%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+
+      },
+      "Hi-Cat5163A": {
+        "Raw material": "Corn/Potato",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.6",
+        "Protein": "0.3"
+
+      },
+      "Hi-Cat1474": {
+        "Raw material": "Potato",
+        "Loss on drying": "18% max",
+        "Bonded nitrogen": "0.9-1.1%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.1",
+        "Protein": "0.1"
+
+      },
+      "Hi-Cat4832A": {
+         "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.45-0.51%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      }
+    }
+  }
+}
+

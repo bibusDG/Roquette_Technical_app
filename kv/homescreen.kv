@@ -1,0 +1,123 @@
+#:import utils kivy.utils
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+#:import WipeTransition kivy.uix.screenmanager.WipeTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+<HomeScreen>
+    FloatLayout: # general overview of main app layout (color, size)
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#45acd1")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout: # firs grid 10% of whole size of window (size hint .1), starts from top-left
+            rows: 1
+            pos_hint: {'top': 1, 'left': 1}
+            size_hint: 1, .1
+            Image: # Roquette image on top of screen
+                source: 'icons/roquette_ico_2.png'
+
+        GridLayout: # second grid with next 10% height (.1). Starts from 90% of all size (.9)
+            rows: 1
+            pos_hint: {'top': .9, 'left': 1}
+            size_hint: 1, .1
+            Image: # Roquette Technical APP logo
+                source: 'menu_names/rta.png'
+
+        GridLayout: # third grid with 70% of height (.7). Starts from 80% of all size (.8)
+            cols: 2
+            rows: 3
+            pos_hint: {'top': .8, 'left': 1}
+            size_hint: 1, .7
+
+            ImageButton: # Hi-Cat icon, move to Hi-Cat screen after release
+                source: 'icons/hicat.png'
+                id: hicat_button
+                name: 'Hi-Cat'
+                on_press:
+                    self.source = 'icons/hicat_small.png'
+                on_release:
+                    self.source = 'icons/hicat.png'
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+#                    app.product_name_on_label(self.name)
+#                    app.change_screen('hicat_menu')                            !!!!!!!!!!!!!!!!!!!
+                    app.change_screen('product_screen')
+
+
+
+
+            ImageButton: # Corrugated Board button, move to CBOARD screen after release
+                source: 'icons/cboard.png'
+                id: cboard_button
+                name: 'Cboard'
+                on_press:
+                    self.source = 'icons/cboard_small.png'
+                on_release:
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+                    self.source = 'icons/cboard.png'
+                    app.change_screen('product_screen')
+
+
+            ImageButton: # Stabilys EVO button, move to EVO screen after release
+                source: 'icons/evo.png'
+                name: 'Evo'
+                on_press:
+                    self.source = 'icons/evo_small.png'
+                on_release:
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+                    self.source = 'icons/evo.png'
+                    app.change_screen('product_screen')
+
+
+
+            ImageButton: # Vector button, move to VECTOR screen after release
+                source: 'icons/vector.png'
+                name: 'Vector'
+                on_press:
+                    self.source = 'icons/vector_small.png'
+                on_release:
+                    self.source = 'icons/vector.png'
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+                    app.change_screen('product_screen')
+
+
+            ImageButton: # Plastylis button, move to PLASTYLIS screen after release
+                source: 'icons/plastylis.png'
+                name: 'Plastylis'
+                on_press:
+                    self.source = 'icons/plastylis_small.png'
+                on_release:
+                    self.source = 'icons/plastylis.png'
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+                    app.change_screen('product_screen')
+
+
+
+            ImageButton: # Enzyme button, move to ENZYME CONVERSION screen after release
+                source: 'icons/enzyme.png'
+                name: 'Enzyme'
+                on_press:
+                    self.source = 'icons/enzyme_small.png'
+                on_release:
+                    self.source = 'icons/enzyme.png'
+                    root.manager.transition = NoTransition(duration=.1)
+                    root.product_name(self.name)
+                    app.change_screen('product_screen')
+
+
+        GridLayout:
+
+            rows: 1
+            pos_hint: {'top': .1, 'left': 1}
+            size_hint: 1, .1

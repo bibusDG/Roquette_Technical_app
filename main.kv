@@ -1,0 +1,106 @@
+#:include kv/homescreen.kv
+#:include kv/hicatscreen.kv
+#:include kv/hicatcalc.kv
+#:include kv/productscreen.kv
+#:include kv/detailedproductscreen.kv
+#:include kv/calcscreen.kv
+#:include kv/vectorcalc.kv
+#:include kv/evocalc.kv
+#:include kv/cboardcalc.kv
+#:import Button kivy.uix.button.Button
+#:import utils kivy.utils
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+
+GridLayout:
+    cols: 1
+    ScreenManager:
+        id:screen_manager
+        HomeScreen:
+            name: 'home_screen'
+            id: home_screen
+
+    ###################################
+
+        ProductScreen:
+            id: product_screen
+            name: 'product_screen'
+
+            GridLayout: # third grid with 70% of height (.7). Starts from 80% of all size (.8)
+                cols: 2
+                rows: 3
+                pos_hint: {'top': .8, 'left': 1}
+                size_hint: 1, .3
+                ImageButton:
+                    name: ''
+                    text:''
+                    source: 'icons/products.png'
+                    on_press:
+                        self.source = 'icons/products_small.png'
+                    on_release:
+                        self.source = 'icons/products.png'
+                        app.change_screen('detailed_product_screen')
+
+                ImageButton:
+                    name: 'calc_ico'
+                    text: ''
+                    source: 'icons/calc.png'
+                    on_press:
+                        self.source = 'icons/calc_small.png'
+                    on_release:
+                        self.source = 'icons/calc.png'
+                        app.change_screen('calc_screen')
+
+
+        DetailedProductScreen:
+            id: detailed_product_screen
+            name: 'detailed_product_screen'
+
+        CalcScreen:
+            id: calc_screen
+            name: 'calc_screen'
+
+#            HiCatCalc
+
+
+
+
+   ########################################
+#        HiCatScreen:
+#            name: 'hicat_screen'
+#            id: hicat_screen
+
+#        HiCatScreen:
+#            name: 'hicat_menu'
+#            id: hicat_menu
+#            GridLayout: # third grid with 70% of height (.7). Starts from 80% of all size (.8)
+#                cols: 2
+#                rows: 3
+#                pos_hint: {'top': .8, 'left': 1}
+#                size_hint: 1, .3
+#                ImageButton:
+#                    source: 'icons/products.png'
+#                    on_press:
+#                        self.source = 'icons/products_small.png'
+#                    on_release:
+#                        self.source = 'icons/products.png'
+#                        app.change_screen('hicat_list_of_products')
+#
+#                ImageButton:
+#                    source: 'icons/calc.png'
+#                    on_press:
+#                        self.source = 'icons/calc_small.png'
+#                    on_release:
+#                        self.source = 'icons/calc.png'
+#                        app.change_screen('hicat_calc')
+#
+#        HiCatScreen:
+#            name: 'hicat_list_of_products'
+#            id: hicat_list_of_products
+#            ProductButtons
+
+#        HiCatScreen:
+#            name: 'hicat_calc'
+#            id: hicat_calc
+#            HiCatCalc

@@ -1,0 +1,219 @@
+<VectorCalc>
+    name: 'vector_calc'
+    id: vector_calc
+    GridLayout:
+        pos_hint: {'top': 1, 'center_x': .5}
+        size_hint: (0.8, .1)
+        cols: 1
+    #        col_default_width:60
+#        rows: 1
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 1
+        Spinner:
+            id: vector_spinner
+            background_color: (1, 2, 1, 1)
+            text: 'CHOOSE VECTOR'
+            color: (0,0,0,1)
+            font_size:20
+    #            size_hint: None, None
+            size: 300, 30
+            on_press:
+                root.vector_spinner(self.text)
+            on_text:
+                root.vector_dry_solid(self.text)
+    GridLayout:
+        pos_hint: {'top': 0.9, 'center_x': .5}
+        size_hint: (0.8, .75)
+        cols: 2
+
+    #        col_default_width:60
+        rows: 10
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 7
+        Label:
+            text: 'VECTOR DRY SOLID: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: vector_dry_solid
+            text: ' %'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'DOSING VECTOR kg/T: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:vector_dosing
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.vector_dosing(self.text)
+
+        Label:
+            text: 'PRODUCTION t/h: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:vector_production
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.vector_production(self.text)
+
+        Label:
+            text: 'FINAL DRY SOLID %: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        TextInput:
+            id:vector_final
+            text:''
+            font_size:15
+            multiline: False
+            on_text_validate:
+                root.vector_final(self.text)
+
+        Label:
+            text: 'COMMERCIAL VECTOR: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: commercial_vector
+            text: ' l/h'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'DILUTION WATER: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: vector_dilution
+            text: ' l/h'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'TOTAL VOLUME: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: vector_volume
+            text: ' l/h'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'TOTAL VECTOR: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: total_vector
+            text: ' m3/mth'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            text: 'TOTAL WATER: '
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+        Label:
+            id: total_water
+            text: ' m3/mth'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: 15
+
+    GridLayout:
+        pos_hint: {'top': .13, 'center_x': .5}
+        size_hint: (0.8, .10)
+        cols: 1
+
+    #        col_default_width:60
+        rows: 1
+#        row_default_height: 30
+#        row_force_default: True
+        spacing: 5
+        Button:
+            id: calculate
+            text: 'Calculate'
+            bold: True
+#            text_size:self.size
+            valign: 'middle'
+            color: (0, 1, 0, 1)
+            font_size: 20
+            on_press:
+                root.vector_calculations()
