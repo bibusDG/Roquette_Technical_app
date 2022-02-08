@@ -61,12 +61,13 @@
             font_size: 15
 
         TextInput:
+            input_filter: 'int'
             id:vector_dosing
             text:''
             font_size:15
             multiline: False
             on_text_validate:
-                root.vector_dosing(self.text)
+                root.vector_dosings(self.text)
 
         Label:
             text: 'PRODUCTION t/h: '
@@ -78,12 +79,13 @@
             font_size: 15
 
         TextInput:
+            input_filter: 'int'
             id:vector_production
             text:''
             font_size:15
             multiline: False
             on_text_validate:
-                root.vector_production(self.text)
+                root.vector_productions(self.text)
 
         Label:
             text: 'FINAL DRY SOLID %: '
@@ -95,6 +97,7 @@
             font_size: 15
 
         TextInput:
+            input_filter: 'int'
             id:vector_final
             text:''
             font_size:15

@@ -20,7 +20,12 @@ from kivy.uix.scrollview import ScrollView
 from kivy.properties import StringProperty, ListProperty
 from kivy.clock import Clock
 
+warning_popup = Popup(title = 'Warning', content = Label(text='Please insert number'), size_hint=(None, None), size=(300, 300))
+zero_division_popup = Popup(title = 'Warning', content = Label(text='Please insert right values'), size_hint=(None, None), size=(300, 300))
+no_product_warning = Popup(title = 'Warning', content = Label(text='No products'), size_hint=(None, None), size=(300, 300))
+
 product_label = []
+
 #################################################################################
 
 class ProductScreen(Screen):
@@ -42,27 +47,30 @@ class DetailedProductScreen(Screen):
     def on_enter(self):
         # pr_grid = GridLayout(cols=3, spacing=7, row_force_default=True, row_default_height=40, pos_hint={'top': .80, 'center_x': .5}, size_hint=(1, .6))
 
+        try:
 
+            for name in data['product'][HomeScreen.tab]:
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Wheat':
+                    color = (1, 1, 1, 1)
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Corn':
+                    color = (3, 2, 1, 1)
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Potato':
+                    color = (1, 0, 0, 1)
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Pea':
+                    color = (3, 2, 1, 1)
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Corn/Potato':
+                    color = (1, 2, 2, 1)
+                self.color_list[name] = color
 
-        for name in data['product'][HomeScreen.tab]:
-            if data['product'][HomeScreen.tab][name]['Raw material'] == 'Wheat':
-                color = (1, 1, 1, 1)
-            if data['product'][HomeScreen.tab][name]['Raw material'] == 'Corn':
-                color = (3, 2, 1, 1)
-            if data['product'][HomeScreen.tab][name]['Raw material'] == 'Potato':
-                color = (1, 0, 0, 1)
-            if data['product'][HomeScreen.tab][name]['Raw material'] == 'Pea':
-                color = (3, 2, 1, 1)
-            if data['product'][HomeScreen.tab][name]['Raw material'] == 'Corn/Potato':
-                color = (1, 2, 2, 1)
-            DetailedProductScreen.color_list[name] = color
+            for name in data['product'][HomeScreen.tab]:
+                btn = Button(text=str(name))
+                btn.background_color = self.color_list[name]
+                self.ids[name] = btn
+                btn.bind(on_release=self.back_to_color)
+                self.ids.grid.add_widget(btn)
 
-        for name in data['product'][HomeScreen.tab]:
-            btn = Button(text=str(name))
-            btn.background_color = DetailedProductScreen.color_list[name]
-            self.ids[name] = btn
-            btn.bind(on_release=self.back_to_color)
-            self.ids.grid.add_widget(btn)
+        except KeyError:
+            no_product_warning.open()
 
     def back_to_color(self, instance):
         print(instance.text)
@@ -97,6 +105,7 @@ class DetailedProductScreen(Screen):
 class HomeScreen(Screen):
 
     tab = 'Cboard'
+
     def product_name(self, name):
         self.manager.get_screen('product_screen').ids.name_label.text = name.upper()
         self.manager.get_screen('detailed_product_screen').ids.name_label.text = name.upper()
@@ -181,18 +190,30 @@ class HiCatCalc(Screen):
         self.loss_on_drying = int(data['product']['Hi-Cat'][text]['Loss on drying'][0:2])
 
     def consumption(self, text):
-        self.consum=int(text)
-
-    def slurry_conc(self, text):
-        self.slurry_concentration = int(text)
-
-    def final_starch(self, text):
-        self.final_concentration = int(text)
-
-    def calculate_data(self):
-        if self.slurry_concentration == 0 or self.final_concentration == 0:
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
             pass
         else:
+            self.consum=int(text)
+
+    def slurry_conc(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.slurry_concentration = int(text)
+
+    def final_starch(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.final_concentration = int(text)
+
+    def calculate_data(self):
+
+        try:
+
             self.ids.consumption.text = str((int(self.consum) * int(self.estimated_value)*24*31)/1000) + ' t/month'
 
             cook_range_min = round(int(self.consum) * 0.85 * int(self.estimated_value) * (1 - (int(self.loss_on_drying))/100))
@@ -212,6 +233,8 @@ class HiCatCalc(Screen):
             water_cosnumption_max = round(((water_range_max + dil_water_range_max)*24*31)/1000)
             self.ids.water_cons.text = str(water_cosnumption_min) + 'm3/m - ' + str(water_cosnumption_max) + 'm3/m'
 
+        except ZeroDivisionError:
+            zero_division_popup.open()
 
 class VectorCalc(Screen):
 
@@ -230,26 +253,44 @@ class VectorCalc(Screen):
         self.dry_solid = int(data['product']['Vector'][text]['Loss on drying'][0:2])
         self.ids.vector_dry_solid.text = str(self.dry_solid) + ' %'
 
-    def vector_dosing(self, text):
-        self.vector_dosing = int(text)
+    def vector_dosings(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.vector_dosing = int(text)
 
-    def vector_production(self, text):
-        self.vector_production = int(text)
+    def vector_productions(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.vector_production = int(text)
 
     def vector_final(self, text):
-        self.vector_fnal = int(text)
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.vector_fnal = int(text)
 
     def vector_calculations(self):
 
-        self.vector_commercial = round(self.vector_dosing/int(self.dry_solid)*100*self.vector_production)
-        self.ids.commercial_vector.text = str(self.vector_commercial) + ' l/h'
+        try:
 
-        self.vector_dilution = round(int(self.dry_solid)/self.vector_fnal*self.vector_commercial-self.vector_commercial)
-        self.ids.vector_dilution.text = str(self.vector_dilution) + ' l/h'
+            self.vector_commercial = round(self.vector_dosing/int(self.dry_solid)*100*self.vector_production)
+            self.ids.commercial_vector.text = str(self.vector_commercial) + ' l/h'
 
-        self.ids.vector_volume.text = str(self.vector_dilution+self.vector_commercial)
-        self.ids.total_vector.text = str(self.vector_commercial*24*31/1000) + ' m3/mth'
-        self.ids.total_water.text = str(self.vector_dilution*24*31/1000) + ' m3/mth'
+            self.vector_dilution = round(int(self.dry_solid)/self.vector_fnal*self.vector_commercial-self.vector_commercial)
+            self.ids.vector_dilution.text = str(self.vector_dilution) + ' l/h'
+
+            self.ids.vector_volume.text = str(self.vector_dilution+self.vector_commercial)
+            self.ids.total_vector.text = str(self.vector_commercial*24*31/1000) + ' m3/mth'
+            self.ids.total_water.text = str(self.vector_dilution*24*31/1000) + ' m3/mth'
+
+        except ZeroDivisionError:
+            zero_division_popup.open()
+
 
 
 class EvoCalc(Screen):
@@ -268,7 +309,77 @@ class CBoardCalc(Screen):
 
 class EnzymeCalc(Screen):
 
-    pass
+    moisture = 0
+    starch_dose = 0
+    production = 0
+    slurry_conc = 0
+    final_conc = 0
+    slurry_water = 0
+    dilution_water = 0
+    enzyme_flow = 0
+    total_water = 0
+    total_enzyme = 0
+
+    def starch_spinner(self):
+        self.ids.enzyme_spinner.values = [str(x) for x in data['product']['Enzyme']]
+
+    def enzyme_spinner(self, text):
+        self.moisture = int(data['product']['Enzyme'][text]['Loss on drying'][0:2])
+
+    def starch_dosing(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.starch_dose = int(text)
+
+    def productions(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.production = int(text)
+
+    def slurry_concent(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.slurry_conc = int(text)
+
+    def final_concent(self, text):
+        if len(text) == 0 or text == '0':
+            warning_popup.open()
+            pass
+        else:
+            self.final_conc = int(text)
+
+    def enzyme_calculation(self):
+
+        try:
+
+            self.ids.consumption.text = str((self.starch_dose * self.production*24*31)/1000) + ' t/month'
+            self.slurry_water = round(((self.starch_dose * self.production)*100*(1-(self.moisture/100))/
+                                                    (self.slurry_conc))-self.starch_dose * self.production)
+            self.ids.slurry_water.text = str(self.slurry_water) + ' l/h'
+
+            self.dilution_water = round(((self.slurry_water * self.slurry_conc) / self.final_conc)-self.slurry_water)
+            self.ids.dilution_water.text = str(self.dilution_water) + ' l/h'
+
+            self.enzyme_flow = round((((self.slurry_water * self.slurry_conc)/100)**2)*0.002 / ((self.slurry_water * self.slurry_conc)/100), 2)
+            self.ids.enzyme_flow.text = str(self.enzyme_flow) + ' l/h'
+
+            self.total_water = round((self.dilution_water*24*31)/1000 + (self.slurry_water*24*31)/1000, 2)
+            self.ids.water_cons.text = str(self.total_water) + ' m3/m'
+
+            self.total_enzyme = round((self.enzyme_flow*24*31)/1000, 2)
+            self.ids.enzyme_cons.text = str(self.total_enzyme) + ' m3/m'
+
+        except ZeroDivisionError:
+            zero_division_popup.open()
+
+
+
 
 # GUI = Builder.load_file('main.kv')
 

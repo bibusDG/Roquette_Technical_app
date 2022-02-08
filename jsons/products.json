@@ -1,8 +1,19 @@
 {
   "product": {
+    "Enzyme": {
+      "dominik": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      }
+    },
     "Vector": {
       "fff": {
-         "Raw material": "Corn",
+        "Raw material": "Corn",
         "Loss on drying": "15% max",
         "Bonded nitrogen": "0.35-0.40%",
         "Appearance": "White powder",
