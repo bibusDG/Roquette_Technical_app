@@ -302,9 +302,59 @@ class EvoCalc(Screen):
 
 class CBoardCalc(Screen):
 
+    variables = {'b_coef': 1, 'c_coef': 1, 'e_coef': 1, 'be_coef': 2, 'bc_coef': 2, 'ce_coef': 2, 'tot_starch': 0, 'b_total': 0,
+                 'c_total': 0, 'e_total': 0, 'be_total': 0, 'bc_total': 0, 'ce_total': 0, 'sode_kg': 0, 'sode_conc': 0, 'new_sode_conc': 0}
+
+    calculation = 0
+    sode_calc = 0
+
     def cboard_spinner(self, text):
         self.ids.cboard_spinner.values = [str(x) for x in data['product']['Cboard']]
 
+    def cboard_spinner_starch(self, text):
+        pass
+
+    def total_starch(self, text, name):
+        if len(text) == 0:
+            warning_popup.open()
+        else:
+            self.variables[name] = int(text)
+
+    def amount(self, text, name):
+        if len(text) == 0:
+            warning_popup.open()
+        else:
+            self.variables[name] = int(text)
+
+    def coeficient(self, text, name):
+        if len(text) == 0:
+            warning_popup.open()
+        else:
+            self.variables[name] = float(text)
+
+
+    def calculate(self):
+
+        try:
+
+            self.calculation = round(self.variables['tot_starch']/((self.variables['b_coef']*self.variables['b_total']) +
+                                    (self.variables['e_coef']*self.variables['e_total']) + (self.variables['c_coef']*self.variables['c_total'])
+                                    + (self.variables['be_coef']*self.variables['be_total'])+
+                                    (self.variables['bc_coef']*self.variables['bc_total']) + (self.variables['ce_coef']*self.variables['ce_total']))*1000, 2)
+            self.ids.result.text = str(self.calculation) + ' g/m2'
+
+        except ZeroDivisionError:
+            warning_popup.open()
+
+    def sode_calculation(self):
+
+        try:
+
+            self.sode_calc = round((self.variables['sode_kg'] * self.variables['sode_conc']) / self.variables['new_sode_conc'], 1)
+            self.ids.new_sode_kg.text = str(self.sode_calc) + ' kg'
+
+        except ZeroDivisionError:
+            warning_popup.open()
     pass
 
 class EnzymeCalc(Screen):
