@@ -11,7 +11,7 @@
 #        row_force_default: True
         spacing: 3
         Spinner:
-            id: vector_spinner
+            id: evo_spinner
             background_color: (1, 2, 1, 1)
             text: 'CHOOSE EVO'
             color: (0,0,0,1)
@@ -20,6 +20,8 @@
             size: 300, 30
             on_press:
                 root.evo_spinner(self.text)
+            on_text:
+                root.spinner_on_text(self.text)
         Label:
             text: 'Batches/day'
             text_size: self.size
@@ -29,13 +31,20 @@
             color: (0, 0, 0, 1)
             font_size: 15
         TextInput:
+            input_filter: 'int'
+            name: 'batches'
             text: ''
+            font_size:12
+            multiline: False
+            on_text_validate:
+                root.variable_input(self.text, self.name)
     GridLayout:
         pos_hint: {'top': .90, 'center_x': .5}
         size_hint: (0.8, .65)
         cols: 4
         rows: 10
         spacing: 3
+        font_size: 11
         Label:
             text: 'PROD.DAYS/YEAR: '
             text_size: self.size
@@ -43,14 +52,16 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'prod_day'
             text:''
             font_size:12
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
             text:'PROD.RATE: '
@@ -59,215 +70,238 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
+
         Label:
+            id: prod_rate
             text:' %'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:'latex price e/T'
+            text:'LATEX €/T'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'latex_price'
             text:''
-            font_size:12
+            font_size:self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'evo price e/T'
+            text:'EVO €/T'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'evo_price'
             text:''
-            font_size:12
+            font_size:self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'latex dry'
+            text:'LATEX DRY'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'latex_dry'
             text:''
-            font_size:12
+            font_size:self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'EVO dry'
+            text:'EVO DRY'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
-
-        TextInput:
-            text:''
-            font_size:12
-            multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            font_size: self.parent.font_size
 
         Label:
-            text:'latex dry price'
-            text_size: self.size
-            bold: True
-            halign: 'left'
-            valign: 'middle'
-            color: (0, 0, 0, 1)
-            font_size: 12
-
-        Label:
-            text:' e/T'
-            text_size: self.size
-            bold: True
-            halign: 'left'
-            valign: 'middle'
-            color: (0, 0, 0, 1)
-            font_size: 12
-
-        Label:
-            text:'EVO dry price'
+            id: evo_dry
+            text:' %'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:' e/T'
+            text:'LATEX DRY'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:'dry solid latex'
+            id: latex_dry_euro
+            text:' €/T'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
-
-        TextInput:
-            text:''
-            font_size:12
-            multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            font_size: self.parent.font_size
 
         Label:
-            text:'dry solid EVO'
+            text:'EVO DRY'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
-
-        TextInput:
-            text:''
-            font_size:12
-            multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            font_size: self.parent.font_size
 
         Label:
-            text:'kg latex/part'
+            id: evo_dry_euro
+            text:' €/T'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
-
-        TextInput:
-            text:''
-            font_size:12
-            multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            font_size: self.parent.font_size
 
         Label:
-            text:'kg EVO/part'
+            text:'DS. LATEX'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: self.parent.font_size
+
+        TextInput:
+            input_filter: 'int'
+            name: 'ds_latex'
+            text:''
+            font_size:self.parent.font_size
+            multiline: False
+            on_text_validate:
+                root.variable_input(self.text, self.name)
+
+        Label:
+            text:'DS. EVO'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'ds_evo'
             text:''
-            font_size:12
+            font_size:self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'kg latex/part'
+            text:'LATEX/PART kg'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
+
+        TextInput:
+            input_filter: 'float'
+            name: 'latex_part'
+            text:''
+            font_size:self.parent.font_size
+            multiline: False
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
+            text:'EVO/PART kg'
+            text_size: self.size
+            bold: True
+            halign: 'right'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: self.parent.font_size
+
+        TextInput:
+            input_filter: 'float'
+            name: 'evo_part'
+            text:''
+            font_size:self.parent.font_size
+            multiline: False
+            on_text_validate:
+                root.variable_input(self.text, self.name)
+
+        Label:
+            text:'LATEX/PART kg'
+            text_size: self.size
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+            color: (0, 0, 0, 1)
+            font_size: self.parent.font_size
+
+        Label:
+            id: latex_part_dry
             text:' dry'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:'kg EVO/part'
+            text:'EVO/PART kg'
             text_size: self.size
             bold: True
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
+            id: evo_part_dry
             text:' dry'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
     GridLayout:
         pos_hint: {'top': .25, 'center_x': .5}
@@ -275,94 +309,113 @@
         cols: 5
         rows: 2
         spacing: 5
+        font_size: 11
         Label:
-            text:'st.coating'
+            text:'ST.COATING'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:'latex parts'
+            text:'LATEX PARTS'
             text_size: self.size
             bold: True
-            halign: 'left'
+            halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'st_latex'
             text:''
-            font_size:12
+            font_size: self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'Evo parts'
+            text:'EVO PARTS'
             text_size: self.size
             bold: True
-            halign: 'left'
+            halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'st_evo'
             text:''
-            halign: 'left'
-            font_size:12
+            font_size: self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'trial coating'
+            text:'TRIAL'
             text_size: self.size
             bold: True
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         Label:
-            text:'latex parts'
+            text:'LATEX PARTS'
             text_size: self.size
             bold: True
-            halign: 'left'
+            halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'tr_latex'
             text:''
-            font_size:12
+            font_size: self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
 
         Label:
-            text:'Evo parts'
+            text:'EVO PARTS'
             text_size: self.size
             bold: True
-            halign: 'left'
+            halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+            font_size: self.parent.font_size
 
         TextInput:
+            input_filter: 'int'
+            name: 'tr_evo'
             text:''
             halign: 'left'
-            font_size:12
+            font_size: self.parent.font_size
             multiline: False
-#            on_text_validate:
-#                root.vector_production(self.text)
+            on_text_validate:
+                root.variable_input(self.text, self.name)
+
+
     GridLayout:
+        id: bottom_line
         pos_hint: {'top': .08, 'center_x': .5}
         size_hint: (0.8, .08)
         rows: 1
+        cols: 2
         spacing: 5
         Button:
             text:'CALCULATE'
+            on_press:
+                root.evo_calculations()
+                root.add_cost_popup_button()
+                root.button_pressed()
+#            on_release:
+#                root.button_pressed()
+
 

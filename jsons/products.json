@@ -1,5 +1,16 @@
 {
   "product": {
+    "Evo": {
+      "evo": {
+       "Raw material": "Corn",
+        "Loss on drying": "10% max",
+        "Bonded nitrogen": "0.35-0.40%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      }
+    },
     "Enzyme": {
       "dominik": {
         "Raw material": "Corn",

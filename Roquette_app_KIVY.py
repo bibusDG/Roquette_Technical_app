@@ -295,8 +295,97 @@ class VectorCalc(Screen):
 
 class EvoCalc(Screen):
 
+    variables = {'batches': 0, 'prod_day': 0, 'latex_price': 0, 'evo_price': 0, 'latex_dry': 0, 'ds_latex': 0,
+                 'ds_evo': 0, 'latex_part': 0, 'evo_part': 0, 'st_latex': 0, 'st_evo': 0, 'tr_latex': 0, 'tr_evo': 0,
+                 'button_pressed': 0}
+
+    prices = {}
+
+    prod_rate = 0
+    evo_dry = 0
+    latex_dry_euro = 0
+    evo_dry_euro = 0
+    latex_part_dry = 0
+    evo_part_dry = 0
+
+    def button_pressed(self):
+        self.variables['button_pressed'] = 1
+
     def evo_spinner(self, text):
         self.ids.evo_spinner.values = [str(x) for x in data['product']['Evo']]
+
+    def spinner_on_text(self, text):
+        self.evo_dry = int(data['product']['Evo'][text]['Loss on drying'][0:2])
+        self.ids.evo_dry.text = str(100 - self.evo_dry) + ' %'
+
+    def variable_input(self, text, name):
+        if len(text) == 0:
+            warning_popup.open()
+            pass
+        else:
+            self.variables[name] = int(text)
+
+    def add_cost_popup_button(self):
+        if self.variables['button_pressed'] == 0:
+            pop_btn = Button(text='SHOW COSTS')
+            self.ids.bottom_line.add_widget(pop_btn)
+            pop_btn.bind(on_release=self.cost_popup)
+            print(self.variables['button_pressed'])
+        else:
+            pass
+
+    def cost_popup(self, *args):
+
+        self.prices['STD.COST/BATCH'] = round((self.variables['st_evo']*self.evo_part_dry*self.evo_dry_euro)/1000 + \
+                                        (self.variables['st_latex'] * self.latex_part_dry*self.latex_dry_euro/1000), 2)
+        self.prices['STD.COST/DAY'] = round(self.prices['STD.COST/BATCH'] * self.variables['batches'],2)
+        self.prices['STD.COST/YEAR'] = round(self.prices['STD.COST/DAY'] * self.variables['prod_day'],2)
+
+        self.prices['EVO.COST/BATCH'] = round(
+            (self.variables['tr_evo'] * self.evo_part_dry * self.evo_dry_euro) / 1000 + \
+            (self.variables['tr_latex'] * self.latex_part_dry * self.latex_dry_euro / 1000), 2)
+        self.prices['EVO.COST/DAY'] = round(self.prices['EVO.COST/BATCH'] * self.variables['batches'], 2)
+        self.prices['EVO.COST/YEAR'] = round(self.prices['EVO.COST/DAY'] * self.variables['prod_day'], 2)
+        self.prices['SAVING/YEAR'] = round(self.prices['STD.COST/YEAR'] - self.prices['EVO.COST/YEAR'], 2)
+
+        pricing_box = GridLayout(cols=1, rows=10, spacing=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
+        for data in self.prices:
+            type_label = Label(font_size=15,
+                               text=data + " :   " + str(self.prices[data]) + '€',
+                               size_hint=(1, 1))
+            pricing_box.add_widget(type_label)
+
+
+        calc_popup = Popup(title='SUMMARY COSTS', content=pricing_box, size_hint=(None, None), size=(380, 500))
+        time.sleep(0.3)
+        calc_popup.open()
+
+    def evo_calculations(self):
+
+        try:
+
+            self.prod_rate = round(self.variables['prod_day']*100/365, 2)
+            self.ids.prod_rate.text = str(self.prod_rate) + ' %'
+
+            self.latex_dry_euro = round(self.variables['latex_price'] * 100/ self.variables['latex_dry'], 2)
+            self.ids.latex_dry_euro.text = str(self.latex_dry_euro) + ' €/T'
+
+            self.evo_dry_euro = round(self.variables['evo_price'] * 100 / (100-self.evo_dry), 2)
+            self.ids.evo_dry_euro.text = str(self.evo_dry_euro) + ' €/T'
+
+            self.latex_part_dry = round(self.variables['latex_part'] *self.variables['ds_latex'] / 100, 2)
+            self.ids.latex_part_dry.text = str(self.latex_part_dry) + ' kg dry'
+
+            self.evo_part_dry = round(self.variables['evo_part'] * self.variables['ds_evo'] / 100, 2)
+            self.ids.evo_part_dry.text = str(self.evo_part_dry) + ' kg dry'
+
+        except ZeroDivisionError:
+            zero_division_popup.open()
+
+
+
+        pass
+
 
     pass
 
@@ -344,7 +433,7 @@ class CBoardCalc(Screen):
             self.ids.result.text = str(self.calculation) + ' g/m2'
 
         except ZeroDivisionError:
-            warning_popup.open()
+            zero_division_popup.open()
 
     def sode_calculation(self):
 
@@ -354,7 +443,7 @@ class CBoardCalc(Screen):
             self.ids.new_sode_kg.text = str(self.sode_calc) + ' kg'
 
         except ZeroDivisionError:
-            warning_popup.open()
+            zero_division_popup.open()
     pass
 
 class EnzymeCalc(Screen):
