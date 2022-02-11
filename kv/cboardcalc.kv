@@ -337,8 +337,11 @@
                 root.coeficient(self.text,self.name)
 
         Button:
-            text: 'New dosage: '
+            text: 'New dose: '
+            bold: True
             font_size: self.parent.font_size
+            valign: 'middle'
+            color: (0, 1, 0, 1)
             on_press:
                 root.sode_calculation()
         Label:
@@ -370,6 +373,9 @@
         spacing: 3
         Button:
             text: 'Calculate[g/m2]: '
+            bold: True
+            valign: 'middle'
+            color: (0, 1, 0, 1)
             on_release:
                 root.calculate()
         Label:

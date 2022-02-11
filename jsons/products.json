@@ -1,67 +1,182 @@
 {
   "product": {
-    "Evo": {
-      "evo": {
-       "Raw material": "Corn",
-        "Loss on drying": "10% max",
-        "Bonded nitrogen": "0.35-0.40%",
-        "Appearance": "White powder",
-        "Ph in 20%": "4.0-6.0",
-        "Fat": "0.8",
-        "Protein": "0.35"
-      }
-    },
     "Enzyme": {
-      "dominik": {
+      "560P": {
         "Raw material": "Corn",
-        "Loss on drying": "15% max",
-        "Bonded nitrogen": "0.35-0.40%",
+        "Loss on drying": "13% max",
         "Appearance": "White powder",
-        "Ph in 20%": "4.0-6.0",
-        "Fat": "0.8",
-        "Protein": "0.35"
+        "Ph in 20%": "6.0-7.0",
+        "Protein content": "0.35",
+        "SO2 content": "250-750ppm",
+        "Ash content" : "0.3% max"
+      },
+      "Native wheat": {
+        "Raw material": "Wheat",
+        "Loss on drying": "13% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "6.0-7.0",
+        "Protein content": "0.35",
+        "SO2 content": "20mg/kg",
+        "Ash content" : "0.25% max"
+      },
+      "Native potato": {
+        "Raw material": "Potato",
+        "Loss on drying": "20% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "5.5-8.0",
+        "Protein content": "0.1",
+        "SO2 content": "20ppm",
+        "Ash content": "0.3% max"
+      },
+      "Standard maize": {
+        "Raw material": "Corn",
+        "Loss on drying": "13% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.5-6.0",
+        "Protein content": "0.35",
+        "SO2 content": "50mg/kg",
+        "Ash content": "0.3% max"
       }
     },
     "Vector": {
-      "fff": {
+      "IC27250": {
         "Raw material": "Corn",
-        "Loss on drying": "15% max",
-        "Bonded nitrogen": "0.35-0.40%",
-        "Appearance": "White powder",
+        "Charge": "Cationic",
+        "Dry substance": "30% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "6.0",
+        "Brookfield": "1000-5000mPas",
+        "Bonded nitrogen": "0.4%"
+      },
+      "SC20157": {
+        "Raw material": "Potato",
+        "Charge": "Cationic",
+        "Dry substance": "22% max",
+        "Appearance": "Liquid polymer",
         "Ph in 20%": "4.0-6.0",
-        "Fat": "0.8",
-        "Protein": "0.35"
+        "Brookfield": "1000-3500mPas",
+        "Bonded nitrogen": "1-1.2%"
+      },
+      "SC30257": {
+        "Raw material": "Corn",
+        "Charge": "Cationic",
+        "Dry substance": "32% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "4.0-6.0",
+        "Brookfield": "1000-4000mPas",
+        "Bonded nitrogen": "1-1.2%"
+      },
+      "IC27216": {
+        "Raw material": "Corn",
+        "Charge": "Cationic",
+        "Dry substance": "30% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "6.0",
+        "Brookfield": "1000-5000mPas",
+        "Bonded nitrogen": "0.4%"
+      },
+      "IC20160": {
+        "Raw material": "Corn",
+        "Charge": "Anionic",
+        "Dry substance": "22% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "6.0",
+        "Brookfield": "1750mPas",
+        "Bonded nitrogen": "+1500 meq/g"
+      },
+      "IC28175": {
+        "Raw material": "Corn",
+        "Charge": "Cationic",
+        "Dry substance": "30% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "5.0-7.0",
+        "Brookfield": "700-1100mPas",
+        "Bonded nitrogen": "+1600 meq/g"
+      },
+      "SC31261": {
+        "Raw material": "Corn",
+        "Charge": "Cationic",
+        "Dry substance": "33% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "6.0",
+        "Bonded nitrogen": "2.1%"
+      },
+      "IC42280": {
+        "Raw material": "Corn",
+        "Charge": "Cationic",
+        "Dry substance": "45% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "5.0-7.0",
+        "Brookfield": "2000-4000mPas",
+        "Bonded nitrogen": "4%"
+      },
+      "IC2522": {
+        "Raw material": "Corn",
+        "Charge": "Anionic",
+        "Dry substance": "30% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "5.0-7.0",
+        "Brookfield": "2000-5000mPas",
+        "Bonded nitrogen": "2-5%"
+      },
+      "IC2016": {
+        "Raw material": "Potato",
+        "Charge": "Anionic",
+        "Dry substance": "22% max",
+        "Appearance": "Liquid polymer",
+        "Ph in 20%": "5.0-7.0",
+        "Brookfield": "1750mPas",
+        "Bonded nitrogen": "6.5-8.5%"
       }
     },
-    "Cboard": {
-      "ddd": {
+    "Evo": {
+      "StabilysEvo250": {
         "Raw material": "Corn",
-        "Loss on drying": "15% max",
-        "Bonded nitrogen": "0.35-0.40%",
+        "Loss on drying": "10% max",
         "Appearance": "White powder",
-        "Ph in 20%": "4.0-6.0",
-        "Fat": "0.8",
-        "Protein": "0.35"
+        "Ph in 20%": "6.0-9.0",
+        "RVA visco. 40% ds": "180 RVU"
+      },
+      "StabilysEvo280": {
+        "Raw material": "Corn",
+        "Loss on drying": "10% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "6.0-9.0",
+        "RVA visco. 40% ds": "800 RVU"
+      },
+      "StabilysEvo850": {
+        "Raw material": "Corn",
+        "Loss on drying": "10% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "6.0-9.0",
+        "RVA visco. 40% ds": "230 RVU"
+      },
+      "StabilysEvo880": {
+        "Raw material": "Corn",
+        "Loss on drying": "10% max",
+        "Appearance": "White powder",
+        "Ph in 20%": "6.0-9.0",
+        "RVA visco. 40% ds": "550 RVU"
       }
     },
     "Hi-Cat": {
-      "Hi-Cat373A": {
+      "Hi-CatC353A": {
         "Raw material": "Corn",
         "Loss on drying": "15% max",
-        "Bonded nitrogen": "0.35-0.40%",
+        "Bonded nitrogen": "0.3-0.4%",
         "Appearance": "White powder",
         "Ph in 20%": "4.0-6.0",
         "Fat": "0.8",
         "Protein": "0.35"
       },
-      "Hi-Cat1134": {
-        "Raw material": "Potato",
-        "Loss on drying": "18% max",
-        "Bonded nitrogen": "0.30-0.35%",
+      "Hi-CatC373A": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.35-0.40%",
         "Appearance": "White powder",
         "Ph in 20%": "4.0-6.0",
-        "Fat": "0.1",
-        "Protein": "0.1"
+        "Fat": "0.8",
+        "Protein": "0.35"
       },
       "Hi-Cat323A": {
         "Raw material": "Corn",
@@ -73,34 +188,178 @@
         "Protein": "0.35"
 
       },
-      "Hi-Cat5163A": {
-        "Raw material": "Corn/Potato",
-        "Loss on drying": "14% max",
-        "Bonded nitrogen": "0.35-0.40%",
-        "Appearance": "White powder",
-        "Ph in 20%": "4.0-6.0",
-        "Fat": "0.6",
-        "Protein": "0.3"
-
-      },
-      "Hi-Cat1474": {
-        "Raw material": "Potato",
-        "Loss on drying": "18% max",
-        "Bonded nitrogen": "0.9-1.1%",
-        "Appearance": "White powder",
-        "Ph in 20%": "4.0-6.0",
-        "Fat": "0.1",
-        "Protein": "0.1"
-
-      },
-      "Hi-Cat4832A": {
-         "Raw material": "Corn",
+      "Hi-CatC643A": {
+        "Raw material": "Corn",
         "Loss on drying": "15% max",
-        "Bonded nitrogen": "0.45-0.51%",
+        "Bonded nitrogen": "0.6-0.68%",
         "Appearance": "White powder",
         "Ph in 20%": "4.0-6.0",
         "Fat": "0.8",
         "Protein": "0.35"
+
+      },
+      "Hi-CatC253A": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.2-0.3%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+
+      },
+      "Hi-CatC453A": {
+         "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.4-0.5%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      },
+       "Hi-CatC483A": {
+         "Raw material": "Corn",
+         "Loss on drying": "15% max",
+         "Bonded nitrogen": "0.45-0.51%",
+         "Appearance": "White powder",
+         "Ph in 20%": "4.0-6.0",
+         "Fat": "0.8",
+         "Protein": "0.35"
+       },
+      "Hi-CatC754A": {
+        "Raw material": "Corn",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.7-0.8%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.8",
+        "Protein": "0.35"
+      },
+      "Hi-Cat5283A": {
+        "Raw material": "Mix",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.6-0.68%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5163A": {
+        "Raw material": "Mix",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.35-0.4%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5244A": {
+        "Raw material": "Mix",
+        "Loss on drying": "16% max",
+        "Bonded nitrogen": "0.5-0.56%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5406A": {
+        "Raw material": "Mix",
+        "Loss on drying": "16% max",
+        "Bonded nitrogen": "0.7-0.8%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5133A": {
+        "Raw material": "Mix",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.3-0.35%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5216A": {
+        "Raw material": "Mix",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.45-0.50%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat5183A": {
+        "Raw material": "Mix",
+        "Loss on drying": "16% max",
+        "Bonded nitrogen": "0.4-0.45%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.4",
+        "Protein": "0.2"
+      },
+      "Hi-Cat7213A": {
+        "Raw material": "Pea",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.4-0.5%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.35",
+        "Protein": "0.3"
+      },
+      "Hi-Cat7153A": {
+        "Raw material": "Pea",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.31-0.39%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.35",
+        "Protein": "0.3"
+      },
+      "Hi-CatLGP705": {
+        "Raw material": "Pea",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.14-0.20%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.35",
+        "Protein": "0.3"
+      },
+      "Hi-Cat7283A": {
+        "Raw material": "Pea",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.57-0.68%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.35",
+        "Protein": "0.3"
+      },
+      "Hi-Cat1134A": {
+        "Raw material": "Potato",
+        "Loss on drying": "18% max",
+        "Bonded nitrogen": "0.30-0.35%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.1",
+        "Protein": "0.1"
+      },
+      "Hi-Cat3353A": {
+        "Raw material": "Wheat",
+        "Loss on drying": "15% max",
+        "Bonded nitrogen": "0.3-0.4%",
+        "Appearance": "White powder",
+        "Ph in 20%": "4.0-6.0",
+        "Fat": "0.85",
+        "Protein": "0.37"
+      },
+      "Hi-CatSP3062": {
+        "Raw material": "Wheat",
+        "Loss on drying": "14% max",
+        "Bonded nitrogen": "0.14-0.20%",
+        "Appearance": "White powder",
+        "Ph in 20%": "8.0-10.0",
+        "Fat": "0.35",
+        "Protein": "0.3"
       }
     }
   }

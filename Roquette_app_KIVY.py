@@ -57,13 +57,13 @@ class DetailedProductScreen(Screen):
                 if data['product'][HomeScreen.tab][name]['Raw material'] == 'Potato':
                     color = (1, 0, 0, 1)
                 if data['product'][HomeScreen.tab][name]['Raw material'] == 'Pea':
-                    color = (3, 2, 1, 1)
-                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Corn/Potato':
+                    color = (1, 2, 1, 1)
+                if data['product'][HomeScreen.tab][name]['Raw material'] == 'Mix':
                     color = (1, 2, 2, 1)
                 self.color_list[name] = color
 
             for name in data['product'][HomeScreen.tab]:
-                btn = Button(text=str(name))
+                btn = Button(text=str(name), color=(0,0,0,1), bold=True)
                 btn.background_color = self.color_list[name]
                 self.ids[name] = btn
                 btn.bind(on_release=self.back_to_color)
@@ -250,7 +250,7 @@ class VectorCalc(Screen):
         self.ids.vector_spinner.values = [str(x) for x in data['product']['Vector']]
 
     def vector_dry_solid(self, text):
-        self.dry_solid = int(data['product']['Vector'][text]['Loss on drying'][0:2])
+        self.dry_solid = int(data['product']['Vector'][text]['Dry substance'][0:2])
         self.ids.vector_dry_solid.text = str(self.dry_solid) + ' %'
 
     def vector_dosings(self, text):
@@ -459,7 +459,7 @@ class EnzymeCalc(Screen):
     total_water = 0
     total_enzyme = 0
 
-    def starch_spinner(self):
+    def starch_spinner(self, text):
         self.ids.enzyme_spinner.values = [str(x) for x in data['product']['Enzyme']]
 
     def enzyme_spinner(self, text):
