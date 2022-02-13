@@ -15,7 +15,7 @@
             background_color: (1, 2, 1, 1)
             text: 'CHOOSE STARCH'
             color: (0,0,0,1)
-            font_size:20
+#            font_size:20
     #            size_hint: None, None
             size: 300, 30
 #            values: ''
@@ -41,13 +41,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         TextInput:
             input_filter: 'int'
             id:starch_dose
             text:''
-            font_size:15
+#            font_size:15
             multiline: False
             on_text_validate:
                 root.starch_dosing(self.text)
@@ -59,13 +59,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         TextInput:
             input_filter: 'int'
             id:production
             text:''
-            font_size:15
+#            font_size:15
             multiline: False
             on_text_validate:
                 root.productions(self.text)
@@ -76,7 +76,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id:consumption
@@ -85,7 +85,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             text: 'SLURRY %: '
@@ -93,13 +93,13 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         TextInput:
             input_filter: 'int'
             id:slurry_conc
             text:''
-            font_size:15
+#            font_size:15
             multiline: False
             on_text_validate:
                 root.slurry_concent(self.text)
@@ -110,13 +110,13 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         TextInput:
             input_filter: 'int'
             id:final_conc
             text:''
-            font_size:15
+#            font_size:15
             multiline: False
             on_text_validate:
                 root.final_concent(self.text)
@@ -128,7 +128,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id:slurry_water
@@ -137,7 +137,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             text:'DILUTION WATER: '
@@ -145,7 +145,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id:dilution_water
@@ -154,7 +154,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             text: 'ENZYME FLOW: '
@@ -162,7 +162,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id: enzyme_flow
@@ -171,7 +171,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             text: 'WATER CONS.: '
@@ -180,7 +180,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id:water_cons
@@ -189,7 +189,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             text: 'ENZYME CONS.: '
@@ -198,7 +198,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
         Label:
             id:enzyme_cons
@@ -207,7 +207,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
 
     GridLayout:
         pos_hint: {'top': .15, 'center_x': .5}
@@ -226,6 +226,6 @@
 #            text_size:self.size
             valign: 'middle'
             color: (0, 1, 0, 1)
-            font_size: 20
+#            font_size: 20
             on_press:
                 root.enzyme_calculation()

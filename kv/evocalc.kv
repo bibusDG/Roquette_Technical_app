@@ -15,7 +15,7 @@
             background_color: (1, 2, 1, 1)
             text: 'CHOOSE EVO'
             color: (0,0,0,1)
-            font_size:15
+#            font_size:15
     #            size_hint: None, None
             size: 300, 30
             on_press:
@@ -29,12 +29,12 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 15
+#            font_size: 15
         TextInput:
             input_filter: 'int'
             name: 'batches'
             text: ''
-            font_size:12
+#            font_size:12
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -44,7 +44,7 @@
         cols: 4
         rows: 10
         spacing: 3
-        font_size: 11
+#        font_size: 11
         Label:
             text: 'PROD.DAYS/YEAR: '
             text_size: self.size
@@ -52,13 +52,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'prod_day'
             text:''
-            font_size:12
+#            font_size:12
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -70,7 +70,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: prod_rate
@@ -80,7 +80,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'LATEX €/T'
@@ -89,13 +89,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'latex_price'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -107,13 +107,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'evo_price'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -125,13 +125,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'latex_dry'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -143,7 +143,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: evo_dry
@@ -153,7 +153,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'LATEX DRY'
@@ -162,7 +162,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: latex_dry_euro
@@ -172,7 +172,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'EVO DRY'
@@ -181,7 +181,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: evo_dry_euro
@@ -191,7 +191,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'DS. LATEX'
@@ -200,13 +200,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'ds_latex'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -218,13 +218,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'ds_evo'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -236,13 +236,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'latex_part'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -254,13 +254,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'evo_part'
             text:''
-            font_size:self.parent.font_size
+#            font_size:self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -272,7 +272,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: latex_part_dry
@@ -282,7 +282,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'EVO/PART kg'
@@ -291,7 +291,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             id: evo_part_dry
@@ -301,7 +301,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
     GridLayout:
         pos_hint: {'top': .25, 'center_x': .5}
@@ -309,7 +309,7 @@
         cols: 5
         rows: 2
         spacing: 5
-        font_size: 11
+#        font_size: 11
         Label:
             text:'ST.COATING'
             text_size: self.size
@@ -317,7 +317,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'LATEX PARTS'
@@ -326,13 +326,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'st_latex'
             text:''
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -344,13 +344,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'st_evo'
             text:''
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -362,7 +362,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         Label:
             text:'LATEX PARTS'
@@ -371,13 +371,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'tr_latex'
             text:''
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)
@@ -389,14 +389,14 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'tr_evo'
             text:''
             halign: 'left'
-            font_size: self.parent.font_size
+#            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.variable_input(self.text, self.name)

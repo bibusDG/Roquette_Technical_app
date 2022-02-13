@@ -15,7 +15,7 @@
             background_color: (1, 2, 1, 1)
             text: 'CHOOSE VECTOR'
             color: (0,0,0,1)
-            font_size:20
+#            font_size:20
     #            size_hint: None, None
             size: 300, 30
             on_press:
@@ -39,7 +39,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: vector_dry_solid
@@ -49,7 +49,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             text: 'DOSING VECTOR kg/T: '
@@ -58,13 +58,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         TextInput:
             input_filter: 'int'
             id:vector_dosing
             text:''
-            font_size:15
+#            font_size:15
             multiline: False
             on_text_validate:
                 root.vector_dosings(self.text)
@@ -76,13 +76,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         TextInput:
             input_filter: 'int'
             id:vector_production
             text:''
-            font_size:12
+#            font_size:12
             multiline: False
             on_text_validate:
                 root.vector_productions(self.text)
@@ -94,13 +94,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         TextInput:
             input_filter: 'int'
             id:vector_final
             text:''
-            font_size:12
+#            font_size:12
             multiline: False
             on_text_validate:
                 root.vector_final(self.text)
@@ -112,7 +112,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: commercial_vector
@@ -122,7 +122,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             text: 'DILUTION WATER: '
@@ -131,7 +131,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: vector_dilution
@@ -141,7 +141,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             text: 'TOTAL VOLUME: '
@@ -150,7 +150,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: vector_volume
@@ -160,7 +160,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             text: 'TOTAL VECTOR: '
@@ -169,7 +169,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: total_vector
@@ -179,7 +179,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             text: 'TOTAL WATER: '
@@ -188,7 +188,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
         Label:
             id: total_water
@@ -198,7 +198,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-            font_size: 12
+#            font_size: 12
 
     GridLayout:
         pos_hint: {'top': .13, 'center_x': .5}
@@ -217,6 +217,6 @@
 #            text_size:self.size
             valign: 'middle'
             color: (0, 1, 0, 1)
-            font_size: 20
+#            font_size: 20
             on_press:
                 root.vector_calculations()
