@@ -31,6 +31,7 @@
 #        row_default_height: 30
 #        row_force_default: True
         spacing: 3
+        font_size: 15
         Label:
             text: 'Total starch (kg):  '
             text_size: self.size
@@ -38,13 +39,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'tot_starch'
             text:''
-#            font_size:15
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.total_starch(self.text, self.name)
@@ -66,13 +67,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name:'e_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -90,7 +91,7 @@
             input_filter: 'float'
             name: 'e_coef'
             text:'1'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -108,7 +109,7 @@
             input_filter: 'int'
             name: 'b_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -120,13 +121,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'b_coef'
             text:'1'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -138,13 +139,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filer: 'int'
             name: 'c_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -156,13 +157,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter : 'float'
             name: 'c_coef'
             text:'1'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -174,13 +175,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'bc_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -192,13 +193,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'bc_coef'
             text:'2'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -210,13 +211,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'be_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -228,13 +229,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'be_coef'
             text:'2'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -246,13 +247,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'ce_total'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.amount(self.text, self.name)
@@ -264,13 +265,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'float'
             name: 'ce_coef'
             text:'2'
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text, self.name)
@@ -283,7 +284,7 @@
 #        row_default_height: 30
 #        row_force_default: True
         spacing: 3
-#        font_size: 20
+        font_size: 20
         Label:
             text:'NaOH kg: '
             text_size: self.size
@@ -291,12 +292,12 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
         TextInput:
             input_filter: 'float'
             name: 'sode_kg'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text,self.name)
@@ -308,12 +309,12 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
         TextInput:
             input_filter: 'int'
             name: 'sode_conc'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text,self.name)
@@ -325,13 +326,13 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             name: 'new_sode_conc'
             text:''
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.coeficient(self.text,self.name)
@@ -339,7 +340,7 @@
         Button:
             text: 'New dose: '
             bold: True
-#            font_size: 20
+            font_size: 20
             valign: 'middle'
             color: (0, 1, 0, 1)
             on_press:
@@ -352,7 +353,7 @@
             halign: 'right'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: self.parent.font_size
+            font_size: self.parent.font_size
 
 #        Button:
 #            text: 'Calculate[g/m2]: '
