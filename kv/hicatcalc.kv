@@ -44,6 +44,7 @@
 #        row_default_height: 30
 #        row_force_default: True
         spacing: 5
+        font_size: 20
         Label:
             text: 'AVG. DOSING: '
             text_size: self.size
@@ -51,7 +52,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id:dosing
@@ -61,7 +62,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             text: 'PRODUCTION t/h: '
@@ -70,13 +71,13 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             id:production
             text:''
-#            font_size:15
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.consumption(self.text)
@@ -87,7 +88,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id:consumption
@@ -96,7 +97,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             text: 'SLURRY IN %: '
@@ -104,13 +105,13 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             id:slurry_conc
             text:''
-#            font_size:15
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.slurry_conc(self.text)
@@ -121,13 +122,13 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         TextInput:
             input_filter: 'int'
             id:final_starch
             text:''
-#            font_size:15
+            font_size: self.parent.font_size
             multiline: False
             on_text_validate:
                 root.final_starch(self.text)
@@ -141,7 +142,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id:cooker_range
@@ -150,7 +151,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             text:'SLURRY WATER: '
@@ -158,7 +159,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id:slurry_water
@@ -167,7 +168,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             text: 'DILUTION WATER: '
@@ -175,7 +176,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id: dilution_water
@@ -184,7 +185,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             text: 'WATER CONS.: '
@@ -193,7 +194,7 @@
             halign: 'left'
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
         Label:
             id:water_cons
@@ -202,7 +203,7 @@
             text_size:self.size
             valign: 'middle'
             color: (0, 0, 0, 1)
-#            font_size: 15
+            font_size: self.parent.font_size
 
     GridLayout:
         pos_hint: {'top': .15, 'center_x': .5}
