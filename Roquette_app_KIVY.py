@@ -73,7 +73,7 @@ class DetailedProductScreen(Screen):
             no_product_warning.open()
 
     def back_to_color(self, instance):
-        print(instance.text)
+        # print(instance.text)
         # for name in DetailedProductScreen.color_list:
         #     print(name)
         # for id, widget in instance.ids.items():
@@ -84,11 +84,11 @@ class DetailedProductScreen(Screen):
         #
         box = GridLayout(cols=1, rows=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
         for i in data['product'][HomeScreen.tab][instance.text]:
-            type_label = Label(font_size=20, text=i.upper() + " :   " + data['product'][HomeScreen.tab][instance.text][i].upper(),
+            type_label = Label(font_size=15, text=i.upper() + " :   " + data['product'][HomeScreen.tab][instance.text][i].upper(),
                                size_hint=(1, 1))
             box.add_widget(type_label)
 
-        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint=(None, None), size=(400, 500))
+        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint=(None, None), size=(300, 400))
         time.sleep(0.3)
         popupWindow.open()  # show the popup
 
@@ -97,7 +97,7 @@ class DetailedProductScreen(Screen):
 
     def on_leave(self):
         self.ids.grid.clear_widgets()
-        print(HomeScreen.tab)
+        # print(HomeScreen.tab)
 
 # name_color = {}
 
@@ -149,7 +149,7 @@ class CalcScreen(Screen):
 
 
     def on_enter(self):
-        print(self.ids.name_label.text)
+        # print(self.ids.name_label.text)
         if self.ids.name_label.text == 'HI-CAT':
             self.ids.calc_screen_box.add_widget(HiCatCalc())
         if self.ids.name_label.text == 'CBOARD':
@@ -162,7 +162,7 @@ class CalcScreen(Screen):
             self.ids.calc_screen_box.add_widget(EnzymeCalc())
     def on_leave(self):
         self.ids.calc_screen_box.clear_widgets()
-        print('end')
+        # print('end')
 
 
 
