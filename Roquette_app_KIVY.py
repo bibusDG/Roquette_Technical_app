@@ -20,9 +20,9 @@ from kivy.uix.scrollview import ScrollView
 from kivy.properties import StringProperty, ListProperty
 from kivy.clock import Clock
 
-warning_popup = Popup(title = 'Warning', content = Label(text='Please insert number'), size_hint=(None, None), size=(300, 300))
-zero_division_popup = Popup(title = 'Warning', content = Label(text='Please insert right values'), size_hint=(None, None), size=(300, 300))
-no_product_warning = Popup(title = 'Warning', content = Label(text='No products'), size_hint=(None, None), size=(300, 300))
+warning_popup = Popup(title = 'Warning', content = Label(text='Please insert number'), size_hint_x=.6, size_hint_y=.6)
+zero_division_popup = Popup(title = 'Warning', content = Label(text='Please insert right values'), size_hint_x=.6, size_hint_y=.6)
+no_product_warning = Popup(title = 'Warning', content = Label(text='No products'), size_hint_x=.6, size_hint_y=.6)
 
 product_label = []
 
@@ -88,7 +88,7 @@ class DetailedProductScreen(Screen):
                                size_hint=(1, 1))
             box.add_widget(type_label)
 
-        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint=(None, None), size=(300, 400))
+        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint=(None, None), size_hint_x=.8, size_hint_y=.8)
         time.sleep(0.3)
         popupWindow.open()  # show the popup
 
