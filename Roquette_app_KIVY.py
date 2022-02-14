@@ -1,4 +1,5 @@
 import time
+from kivy.metrics import dp, sp
 from kivy.base import runTouchApp
 from kivy.uix.dropdown import DropDown
 from kivy.properties import ObjectProperty
@@ -84,11 +85,11 @@ class DetailedProductScreen(Screen):
         #
         box = GridLayout(cols=1, rows=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
         for i in data['product'][HomeScreen.tab][instance.text]:
-            type_label = Label(font_size=15, text=i.upper() + " :   " + data['product'][HomeScreen.tab][instance.text][i].upper(),
+            type_label = Label(font_size=dp(15), text=i.upper() + " :   " + data['product'][HomeScreen.tab][instance.text][i].upper(),
                                size_hint=(1, 1))
             box.add_widget(type_label)
 
-        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint=(None, None), size_hint_x=.8, size_hint_y=.8)
+        popupWindow = Popup(title=instance.text.upper(),  content=box, size_hint_x=.8, size_hint_y=.8)
         time.sleep(0.3)
         popupWindow.open()  # show the popup
 
@@ -312,7 +313,8 @@ class EvoCalc(Screen):
         self.variables['button_pressed'] = 1
 
     def evo_spinner(self, text):
-        self.ids.evo_spinner.values = [str(x) for x in data['product']['Evo']]
+        self.ids.evo_spinner.values = [str(x)[8::] for x in data['product']['Evo']]
+        self.font_size=dp(10)
 
     def spinner_on_text(self, text):
         self.evo_dry = int(data['product']['Evo'][text]['Loss on drying'][0:2])
@@ -327,7 +329,7 @@ class EvoCalc(Screen):
 
     def add_cost_popup_button(self):
         if self.variables['button_pressed'] == 0:
-            pop_btn = Button(text='SHOW COSTS')
+            pop_btn = Button(text='SHOW COSTS', bold=True, color=(0, 1, 0, 1), font_size=dp(15))
             self.ids.bottom_line.add_widget(pop_btn)
             pop_btn.bind(on_release=self.cost_popup)
             print(self.variables['button_pressed'])
@@ -350,13 +352,13 @@ class EvoCalc(Screen):
 
         pricing_box = GridLayout(cols=1, rows=10, spacing=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
         for data in self.prices:
-            type_label = Label(font_size=15,
+            type_label = Label(font_size=dp(15),
                                text=data + " :   " + str(self.prices[data]) + '€',
                                size_hint=(1, 1))
             pricing_box.add_widget(type_label)
 
 
-        calc_popup = Popup(title='SUMMARY COSTS', content=pricing_box, size_hint=(None, None), size=(380, 500))
+        calc_popup = Popup(title='SUMMARY COSTS', content=pricing_box, size_hint_x=.8, size_hint_y=.8)
         time.sleep(0.3)
         calc_popup.open()
 
