@@ -1,9 +1,9 @@
 import time
+from kivy.config import Config
+Config.set('graphics', 'resizable', False)  # for PC app, erase for IPHONE App
 from kivy.metrics import dp, sp
-from kivy.base import runTouchApp
-from kivy.uix.dropdown import DropDown
 from kivy.properties import ObjectProperty
-from product_lists_json import data
+from product_lists_json import data, recipe_data
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
@@ -12,14 +12,11 @@ from kivy.uix.button import Button
 from kivy.uix.image import Image
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
-from kivy.uix.boxlayout import BoxLayout
-from product_lists_json import hi_cat
 from kivy.uix.popup import Popup
-from kivy.uix.widget import Widget
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.scrollview import ScrollView
-from kivy.properties import StringProperty, ListProperty
-from kivy.clock import Clock
+from kivy.core.window import Window
+
+
 
 warning_popup = Popup(title = 'Warning', content = Label(text='Please insert number'), size_hint_x=.6, size_hint_y=.6)
 zero_division_popup = Popup(title = 'Warning', content = Label(text='Please insert right values'), size_hint_x=.6, size_hint_y=.6)
@@ -34,19 +31,11 @@ class ProductScreen(Screen):
     pass
 
 
-
 class DetailedProductScreen(Screen):
-    #
-    # def __init__(self, **kwargs):
-    #     super(DetailedProductScreen, self).__init__(**kwargs)
-    #     self.build_grid()
-    # def on_enter(self, *args):
-    #     self.build_grid()
 
     color_list = {}
 
     def on_enter(self):
-        # pr_grid = GridLayout(cols=3, spacing=7, row_force_default=True, row_default_height=40, pos_hint={'top': .80, 'center_x': .5}, size_hint=(1, .6))
 
         try:
 
@@ -74,15 +63,7 @@ class DetailedProductScreen(Screen):
             no_product_warning.open()
 
     def back_to_color(self, instance):
-        # print(instance.text)
-        # for name in DetailedProductScreen.color_list:
-        #     print(name)
-        # for id, widget in instance.ids.items():
-        #     print(id)
-        #     if widget.__self__ == instance:
-        #         # instance.background_color = hi_cat()[id]
-        #         print(id)
-        #
+
         box = GridLayout(cols=1, rows=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
         for i in data['product'][HomeScreen.tab][instance.text]:
             type_label = Label(font_size=dp(15), text=i.upper() + " :   " + data['product'][HomeScreen.tab][instance.text][i].upper(),
@@ -94,13 +75,9 @@ class DetailedProductScreen(Screen):
         popupWindow.open()  # show the popup
 
 
-        # self.add_widget(pr_grid)
-
     def on_leave(self):
         self.ids.grid.clear_widgets()
         # print(HomeScreen.tab)
-
-# name_color = {}
 
 
 class HomeScreen(Screen):
@@ -113,9 +90,6 @@ class HomeScreen(Screen):
         self.manager.get_screen('calc_screen').ids.name_label.text = name.upper()
         product_label.append(name)
         HomeScreen.tab = name
-        # DetailedProductScreen().build_grid()
-        # print(HomeScreen.tab)
-    #     # self.manager.get_screen('product_screen').ids.product_ico.name = name
 
     pass
     """
@@ -124,22 +98,12 @@ class HomeScreen(Screen):
 
 
 
-#
-# class HiCatScreen(Screen):
-#
-#     pass
-
-
 class ImageButton(ButtonBehavior, Image):
     """
     Class for buttons made from images
     """
     pass
 
-
-# class ProductButtons(Screen):
-#
-#     pass
 
 
 class PopUpWindow(FloatLayout):
@@ -313,7 +277,7 @@ class EvoCalc(Screen):
         self.variables['button_pressed'] = 1
 
     def evo_spinner(self, text):
-        self.ids.evo_spinner.values = [str(x)[8::] for x in data['product']['Evo']]
+        self.ids.evo_spinner.values = [str(x) for x in data['product']['Evo']]
         self.font_size=dp(10)
 
     def spinner_on_text(self, text):
@@ -332,7 +296,7 @@ class EvoCalc(Screen):
             pop_btn = Button(text='SHOW COSTS', bold=True, color=(0, 1, 0, 1), font_size=dp(15))
             self.ids.bottom_line.add_widget(pop_btn)
             pop_btn.bind(on_release=self.cost_popup)
-            print(self.variables['button_pressed'])
+            # print(self.variables['button_pressed'])
         else:
             pass
 
@@ -403,7 +367,23 @@ class CBoardCalc(Screen):
         self.ids.cboard_spinner.values = [str(x) for x in data['product']['Cboard']]
 
     def cboard_spinner_starch(self, text):
+
+        recipe_box = GridLayout(cols=1, rows=15, spacing=10, pos_hint={'top': .9, 'left': 1}, size_hint=(1, .7))
+        for data in recipe_data["recipes"][text]:
+            type_label = Label(font_size=dp(15),
+                               text=data + " :   " + str(recipe_data["recipes"][text][data]),
+                               size_hint=(1, 1))
+            recipe_box.add_widget(type_label)
+
+        calc_popup = Popup(title='STANDARD SF RECIPE', content=recipe_box, size_hint_x=.8, size_hint_y=.8)
+        time.sleep(0.3)
+        calc_popup.open()
+
         pass
+
+    def recipe_popup(self):
+        pass
+
 
     def total_starch(self, text, name):
         if len(text) == 0:
@@ -447,6 +427,8 @@ class CBoardCalc(Screen):
         except ZeroDivisionError:
             zero_division_popup.open()
     pass
+
+
 
 class EnzymeCalc(Screen):
 
@@ -520,11 +502,6 @@ class EnzymeCalc(Screen):
             zero_division_popup.open()
 
 
-
-
-# GUI = Builder.load_file('main.kv')
-
-
 screen_list = ['home_screen']  # list of visited screens for "BECK" button
 button_pressed = {'products': 0, 'calc': 0}
 
@@ -532,6 +509,7 @@ button_pressed = {'products': 0, 'calc': 0}
 class MainRoquetteApp(App):
 
     def build(self):
+        Window.size = (450, 750)
         GUI = Builder.load_file('main.kv')
         return GUI
 
@@ -559,22 +537,6 @@ class MainRoquetteApp(App):
     def zeroing_list(self):
         screen_list.clear()
         screen_list.append('home_screen')
-
-
-
-
-    # def product_button(self):
-    #     button_pressed['products'] = 1
-    #     button_pressed['calc'] = 0
-    #
-    #
-    # def calc_button(self):
-    #     button_pressed['calc'] = 1
-    #     button_pressed['products'] = 0
-
-    def list_of_products(self, text):
-        if text == 'hi-cat':
-            return hi_cat()
 
 
 if __name__ == '__main__':
